@@ -1,7 +1,7 @@
 import { clearSearchText, setSearchFocus, showClearTextButton, clearPushListener } from "./searchBar.js";
 import { deleteSearchResults, buildSearchResults, clearStatsLine, setStatsLine } from "./searchResults.js"
-import { getSearchTerm } from "./dataFunctions.js";
-import { retrieveSearchResults } from "./dataFunctions.js"
+import { getSearchTerm, retrieveSearchResults } from "./dataFunctions.js";
+// import { retrieveSearchResults } from "./dataFunctions.js"
 
 document.addEventListener("readystatechange", (event) => {
     if (event.target.readyState === "complete") {
@@ -16,6 +16,7 @@ const initApp = () => {
 
     const clear = document.getElementById("clear");
     clear.addEventListener("click", clearSearchText);
+    clear.addEventListener("keydown", clearPushListener);
 
     const form = document.getElementById("searchBar");
     form.addEventListener("submit", submitTheSearch);
